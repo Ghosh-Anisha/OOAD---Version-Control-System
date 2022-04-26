@@ -30,46 +30,46 @@ public class Main {
                 }
                 case "add": {
                     //Add a file to the current working directory 
-                    if (inputChecker(2, args) && valid) {
+                    if (inputChecker(2, args)) {
                         r.add(args[1]);
                     }
                     break;
                 }
                 case "commit": {
                     //commit new changes such as add and remove 
-                    if (inputChecker(2, args)&& valid) {
+                    if (inputChecker(2, args)) {
                         r.commitment(args[1]);
                     }
                     break;
                 }
                 case "rm": {
                     //remove a file that was previously committed 
-                    if (inputChecker(2, args) && valid) {
+                    if (inputChecker(2, args)) {
                         r.rm(args[1]);
                     }
                     break;
                 }
                 case "log":
                     //check previous commit history 
-                    if (inputChecker(1, args) && valid) {
+                    if (inputChecker(1, args)) {
                         r.log();
                     }
                     break;
                 case "global-log":
-                    if (inputChecker(1, args) && valid) {
+                    if (inputChecker(1, args)) {
                         r.global();
                     }
                     break;
                 case "branch": {
                     //creates a new branch 
-                    if (inputChecker(2, args) && valid) {
+                    if (inputChecker(2, args)) {
                         String branchName = args[1];
                         r.branch(branchName);
                     }
                     break;
                 }
                 case "rm-branch": {
-                    if (inputChecker(2, args) && valid) {
+                    if (inputChecker(2, args)) {
                         String branchName = args[1];
                         r.rmb(branchName);
                     }
