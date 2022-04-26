@@ -15,7 +15,7 @@ public class Main {
             switch (args[0]) {
                 case "init": {
                     //initialises a new repository with all the base directories required to perform version control system 
-                    if(args[1].equals("user") && args[2].equals("user"))
+                    if(args[1].equals("user") && args[2].equals("password"))
                     {
                         valid = true;
                         if (inputChecker(3, args)) {
