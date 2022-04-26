@@ -53,27 +53,6 @@ public class Main {
                         r.global();
                     }
                     break;
-                case "find": {
-                    r.find(args[1]);
-                    break;
-                }
-                case "status": {
-                    if (inputChecker(1, args)) {
-                        r.status();
-                    }
-                    break;
-                }
-                case "checkout": {
-                    if (args.length != 2 && args.length != 3 && args.length != 4) {
-                        System.out.println("Incorrect Operands");
-                    } else if ((args.length == 4 && !args[2].equals("--"))
-                            || (args.length == 3 && !args[1].equals("--"))) {
-                        System.out.println("Incorrect Operands");
-                    } else {
-                        r.checkout(args);
-                    }
-                    break;
-                }
                 case "branch": {
                     if (inputChecker(2, args)) {
                         String branchName = args[1];
@@ -85,19 +64,6 @@ public class Main {
                     if (inputChecker(2, args)) {
                         String branchName = args[1];
                         r.rmb(branchName);
-                    }
-                    break;
-                }
-                case "reset": {
-                    if (inputChecker(2, args)) {
-                        r.reset(args[1]);
-                    }
-                    break;
-                }
-
-                case "merge": {
-                    if (inputChecker(2, args)) {
-                        r.merge(args[1]);
                     }
                     break;
                 }
