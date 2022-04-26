@@ -87,6 +87,7 @@ public class Repo {
             Utils.writeContents(new File(".gitlet/blobs/" + blobHash + ".txt"), blob);
             stage.add(fileName, blobHash);
             SerializeUtils.storeObjectToFile(stage, ".gitlet/staging/stage.txt");
+            System.out.println("File added successfully!");
         } else {
             System.out.print("File does not exist.");
         }
