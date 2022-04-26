@@ -1,10 +1,7 @@
-// package gitlet;
-
 import java.io.*;
 
 public class SerializeUtils {
 
-    // Stores an Object to a file specified by filePath.
     public static void storeObjectToFile(Object obj, String filePath) {
         File outFile = new File(filePath);
         try {
@@ -17,7 +14,6 @@ public class SerializeUtils {
         }
     }
 
-    // Converts an Object to a ByteArray, only use if SHA1 is needed.
     public static byte[] toByteArray(Object obj) {
         try {
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -30,7 +26,6 @@ public class SerializeUtils {
         }
     }
 
-    // Reconstructs an Object from ByteArray.
     public static <T> T deserialize(String fileName, Class<T> type) {
         T obj;
         File inFile = new File(fileName);

@@ -1,5 +1,3 @@
-// package gitlet;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,7 +8,7 @@ public class Commit implements Serializable {
     private String parentHash;
     private String message;
     private String datetime;
-    private HashMap<String, String> blobs; // <fileName, SHA1>
+    private HashMap<String, String> blobs; 
 
     public Commit(String msg, HashMap<String, String> blobMap, String parent) {
         LocalDateTime current = LocalDateTime.now();
@@ -20,7 +18,7 @@ public class Commit implements Serializable {
         blobs = blobMap;
         parentHash = parent;
         ownHash = calcHash();
-        SerializeUtils.writeStringToFile(globalLog(), ".gitlet/global-log/gl.txt", true);
+        SerializeUtils.writeStringToFile(globalLog(), ".agile/global-log/gl.txt", true);
     }
 
     public String calcHash() {

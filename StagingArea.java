@@ -1,5 +1,3 @@
-// package gitlet;
-
 import java.util.*;
 import java.io.Serializable;
 

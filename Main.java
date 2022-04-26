@@ -1,67 +1,75 @@
-// package gitlet;
+/*Building a Simple version control system to Add, Commit, Remove, Branch and log a repository 
+creates a working directory on local system and manges it*/
 
-/**
- * Driver class for Gitlet, the tiny stupid version-control system.
- *
- * @author
- */
 public class Main {
 
-    /**
-     * Usage: java gitlet.Main ARGS, where ARGS contains
-     * <COMMAND> <OPERAND> ....
-     */
     public static void main(String... args) {
 
         Repo r = new Repo();
+        Boolean valid = false; 
         int inputLength = args.length;
         if (inputLength == 0) {
             System.out.println("Please enter a command.");
-        } else {
+        } 
+        else {
             switch (args[0]) {
                 case "init": {
-                    if (inputChecker(1, args)) {
-                        r.init();
+                    //initialises a new repository with all the base directories required to perform version control system 
+                    if(args[1].equals("user") && args[2].equals("user"))
+                    {
+                        valid = true;
+                        if (inputChecker(3, args)) {
+                            r.init();
+                        }
                     }
+                    else
+                    {
+                        System.out.println("Authentication failed");
+                    }  
                     break;
                 }
                 case "add": {
-                    if (inputChecker(2, args)) {
+                    //Add a file to the current working directory 
+                    if (inputChecker(2, args) && valid) {
                         r.add(args[1]);
                     }
                     break;
                 }
                 case "commit": {
-                    if (inputChecker(2, args)) {
+                    //commit new changes such as add and remove 
+                    if (inputChecker(2, args)&& valid) {
                         r.commitment(args[1]);
                     }
                     break;
                 }
                 case "rm": {
-                    if (inputChecker(2, args)) {
+                    //remove a file that was previously committed 
+                    if (inputChecker(2, args) && valid) {
                         r.rm(args[1]);
                     }
                     break;
                 }
                 case "log":
-                    if (inputChecker(1, args)) {
+                    //check previous commit history 
+                    if (inputChecker(1, args) && valid) {
                         r.log();
                     }
                     break;
                 case "global-log":
-                    if (inputChecker(1, args)) {
+                    if (inputChecker(1, args) && valid) {
                         r.global();
                     }
                     break;
                 case "branch": {
-                    if (inputChecker(2, args)) {
+                    //creates a new branch 
+                    if (inputChecker(2, args) && valid) {
                         String branchName = args[1];
                         r.branch(branchName);
                     }
                     break;
                 }
                 case "rm-branch": {
-                    if (inputChecker(2, args)) {
+                    if (inputChecker(2, args) && valid) {
                         String branchName = args[1];
                         r.rmb(branchName);
                     }
@@ -74,11 +82,6 @@ public class Main {
         }
         System.exit(0);
     }
-
-    /*
-    * Checks that the number of inputs sent to Main matches the
-    * number expected
-     */
 
     static boolean inputChecker(int length, String... args) {
         if (args.length == length) {
