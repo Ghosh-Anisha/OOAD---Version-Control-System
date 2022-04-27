@@ -6,7 +6,6 @@ public class Main {
     public static void main(String... args) {
 
         Repo r = new Repo();
-        Boolean valid = false; 
         int inputLength = args.length;
         if (inputLength == 0) {
             System.out.println("Please enter a command.");
@@ -17,7 +16,6 @@ public class Main {
                     //initialises a new repository with all the base directories required to perform version control system 
                     if(args[1].equals("user") && args[2].equals("password"))
                     {
-                        valid = true;
                         if (inputChecker(3, args)) {
                             r.init();
                         }
